@@ -6,10 +6,6 @@ exercice 2.2 transfert
 a = input("a ->")
 b = input("b ->")
 c = input("c ->")
-d = c
-c = b
-b = a
-a = d
-
+a, b, c = c, a, b
 
 print("a ->", a, "b ->", b, "c ->", c)

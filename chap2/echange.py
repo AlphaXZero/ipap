@@ -7,7 +7,5 @@ __version__ = 0.1
 
 a = input("a ->")
 b = input("b ->")
-c = a
-a = b
-b = c
+a, b = b, a
 print("a ->", a, "b ->", b)
