@@ -9,7 +9,7 @@ __version__ = 0.1
 article = input("Entrez le nom de l'article : ")
 prix_htv = int(input("Entrez le prix hors TVA : "))
 nbr = int(input("Entrez le nombre d'articles : "))
-taux_tva = int(input("Entrez le taux tva (en %) : "))
+taux_tva = int(input("Entrez le taux tva (en %, exemple : 21 pour 21%) : "))
 print(
     "les",
     nbr,
