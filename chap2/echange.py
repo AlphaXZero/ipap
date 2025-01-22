@@ -8,4 +8,4 @@ b = input("b ->")
 c = a
 a = b
 b = c
-print("a ->", a, "b ->", b)
+print("a ->", a, "b ->", b )
