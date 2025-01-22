@@ -11,5 +11,5 @@ prix_htv = float(input("Entrez le prix hors TVA : "))
 nbr = int(input("Entrez le nombre d'articles : "))
 taux_tva = float(input("Entrez le taux tva (en %, exemple : 21 pour 21%) : "))
 print(
-    f"les {nbr} {article} coûtent {nbr * ((prix_htv * taux_tva) / 100 + prix_htv):2f} TTC"
+    f"les {nbr} {article} coûtent {(nbr * ((prix_htv * taux_tva) / 100 + prix_htv)):.2f} TTC"
 )
