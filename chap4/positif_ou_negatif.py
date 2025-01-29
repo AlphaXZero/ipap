@@ -6,7 +6,7 @@ __version__ = 0.1
 """
 
 
-nbr = input("Entrez un nombre : ")
+nbr = int(input("Entrez un nombre : "))
 if nbr >= 0:
     print("Le nombre est positif")
 else:
