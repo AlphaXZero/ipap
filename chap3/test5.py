@@ -5,5 +5,4 @@ __author__ = Gvanderveen
 __version__ = 0.1
 """
 
-nbr = int(input("Entrez nombre"))
-print(10 <= nbr <= 100)
+print(10 <= int(input("Entrez nombre")) <= 100)

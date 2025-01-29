@@ -5,5 +5,4 @@ __author__ = Gvanderveen
 __version__ = 0.1
 """
 
-word = input("Entrez un mot")
-print("combinatoire" < word < "logique")
+print("combinatoire" < input("Entrez un mot") < "logique")

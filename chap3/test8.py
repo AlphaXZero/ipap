@@ -6,4 +6,4 @@ __version__ = 0.1
 """
 
 nbr = int(input("Entrez nombre"))
-print(nbr % 2 != 0 or nbr % 5 == 0)
+print(nbr % 2 == 0 and nbr % 5 == 0)
