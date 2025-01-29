@@ -13,4 +13,4 @@ word3 = input("Entrez un mot")
 if word1 < word2 and word2 < word3:
     print("alphabétique")
 else:
-    print("non-alphabétique")
+    print("non-alphabétique")   
