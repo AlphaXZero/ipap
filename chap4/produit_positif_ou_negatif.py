@@ -9,7 +9,7 @@ __version__ = 0.1
 nbr1 = int(input("Entrez le premier nombre : "))
 nbr2 = int(input("Entrez le deuxième nombre : "))
 
-if nbr1 < 0 ^ nbr2 < 0:
+if (nbr1 < 0) ^ (nbr2 < 0):
     print("Le nombre est négatif")
 else:
     print("le nombre est positif")
