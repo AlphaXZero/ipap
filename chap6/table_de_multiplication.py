@@ -5,3 +5,8 @@ les nombres 34 à 43.
 __author__ = Gvanderveen
 __version__ = 0.1
 """
+
+number = int(input("Entrez un nombre : "))
+
+for i in range(10):
+    print(f"{number} * {i + 1} = {(i + 1) * number}")
