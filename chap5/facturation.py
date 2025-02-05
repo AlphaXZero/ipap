@@ -7,14 +7,15 @@ __version__ = 0.1
 """
 
 nbr = int(input("Entrez le nombre de photocopies : "))
-rate = 0.03  # base rate
+total = 0  # base rate
 
 if nbr < 0:
-    rate = 0
     print("impossible d'imprimer un nombre négatif de feuilles")
 elif nbr <= 10:
-    rate = 0.05
-elif 10 < nbr <= 20:
-    rate = 0.04
+    total = 0.05 * nbr
+elif 10 < nbr <= 30:
+    total = 0.04 * (nbr - 10) + (10 * 0.05)
+else:
+    total = 0.03 * (nbr - 30) + (10 * 0.05) + (20 * 0.04) 
 
-print(f"Ces {nbr} photocopies coûtenront {rate * nbr} €")
+print(f"Ces {nbr} photocopies coûtenront {total} €")
