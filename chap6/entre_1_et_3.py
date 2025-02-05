@@ -7,5 +7,5 @@ __version__ = 0.1
 
 number = -1
 
-while number < 1 or number >3:
+while not (1 <= number <= 3):
     number = int(input("Entrez un nombre entre 1 et 3 : "))
