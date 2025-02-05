@@ -36,7 +36,7 @@ delta = b**2 - 4 * a * c
 
 if delta < 0:
     print(
-        f"roots are {-b / (2 * a)} + i√({-delta})/{2 * a} and {-b / (2 * a)} - i√({-delta})/{2 * a}"
+        f"roots are {-b / (2 * a)} + i √{-delta/(2 * a)} and {-b / (2 * a)} - i √{-delta/(2 * a)}"
     )
 elif delta == 0:
     print(f"root is {-b / (2 * a)}")
