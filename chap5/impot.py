@@ -23,4 +23,4 @@ if gender == "h" and age > 20:
 if gender == "f" and 18 >= age >= 35:
     impot = True
 
-print("il faut payer") if impot else print("il ne faut pas payer")  
+print("il faut payer") if impot else print("il ne faut pas payer")

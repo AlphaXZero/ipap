@@ -4,6 +4,9 @@ requires-python = ">=3.13"
 [manifest]
 members = [
     "chap2",
+    "chap3",
+    "chap4",
+    "chap5",
     "ipap",
 ]
 
@@ -21,6 +24,21 @@ dev = [
 
 [package.metadata.requires-dev]
 dev = [{ name = "ruff", specifier = ">=0.9.2" }]
+
+[[package]]
+name = "chap3"
+version = "0.1.0"
+source = { virtual = "chap3" }
+
+[[package]]
+name = "chap4"
+version = "0.1.0"
+source = { virtual = "chap4" }
+
+[[package]]
+name = "chap5"
+version = "0.1.0"
+source = { virtual = "chap5" }
 
 [[package]]
 name = "ipap"
