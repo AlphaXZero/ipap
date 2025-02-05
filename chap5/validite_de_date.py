@@ -1,5 +1,8 @@
 """
-return the day of tomorrow for the input date.
+Écrivez un algorithme qui demande à l’utilisateur un numéro de jour, de mois et d’année,
+puis qui renvoie s’il s’agit ou non d’une date valide. Pour rappel, une année est bissextile
+si elle est divisible par 4. Les années divisibles par 100 ne sont pas bissextiles, mais les
+années divisibles par 400 le sont.
 __author__ = Gvanderveen
 __version__ = 0.1
 """
@@ -10,26 +13,18 @@ year = int(input("Enter the year : "))
 
 if month in (1, 3, 5, 6, 7, 10, 12):
     if day > 31:
-        raise ValueError("invalid day")  # or print()
-    day = (day % 31) + 1
+        print("invalid day")  # or print()
 elif month in (4, 8, 9, 11):
     if day > 30:
-        raise ValueError("invalid day")
-    day = (day % 30) + 1
+        print("invalid day")
 elif month == 2:
     if (year % 4 == 0 and year % 100 != 0) or year % 400 == 0:
         if day > 29:
-            raise ValueError("invalid day")
-        day = (day % 29) + 1
+            print("invalid day")
     else:
         if day > 28:
-            raise ValueError("invalid day")
-        day = (day % 28) + 1
+            print("invalid day")
 else:
-    raise ValueError("invalid month")
-if day == 1:
-    month = (month % 12) + 1
-if month == 1 and day == 1:
-    year += 1
+    print("invalid month")
 
 print(f"{day}/{month}/{year}")
