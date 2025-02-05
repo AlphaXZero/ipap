@@ -22,7 +22,7 @@ first_cand_percent = result1 / (result1 + result2 + result3 + result3)
 if first_cand_percent > 0.5:
     print(f"élu avec {first_cand_percent * 100:.2f}% des voix")
 elif first_cand_percent > 0.125:
-    if result1 == max(result1, result2, result3, result4):
+    if result1 > result2 and result1 > result3 and result1 > result4:
         print(f"Ballotage favorable avec {first_cand_percent * 100:.2f}% des voix")
     else:
         print(f"Ballotage défavorable avec {first_cand_percent * 100:.2f}% des voix")
