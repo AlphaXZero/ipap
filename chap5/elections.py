@@ -17,3 +17,6 @@ result2 = int(input("Entrez le résultat du deuxième"))
 result3 = int(input("Entrez le résultat du troisième"))
 result4 = int(input("Entrez le résultat du quatrième"))
 
+
+print(result1)
+
