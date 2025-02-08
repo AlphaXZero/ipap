@@ -10,6 +10,7 @@ maxi = -100000000000
 pos = 0
 counter = 0
 is_zero = False
+
 while not is_zero:
     counter += 1
     in_usr = int(input("Entrez un nombre ou 0 pour arrêter : "))
@@ -18,5 +19,5 @@ while not is_zero:
     elif in_usr > maxi:
         pos = counter
         maxi = in_usr
-        
+
 print(f"Le {pos} ème nombre est le plus grand et il vaut : {maxi}")
