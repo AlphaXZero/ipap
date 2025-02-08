@@ -7,9 +7,9 @@ __version__ = 0.1
 """
 
 number = int(input("Entrez un nombre : "))
-sum = 0
+sum_a = 0
 
 for i in range(number):
-    sum += i+1
+    sum_a += i+1
 
-print(sum)
+print(sum_a)

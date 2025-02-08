@@ -6,9 +6,8 @@ __version__ = 0.1
 """
 
 number = int(input("Entrez un nombre : "))
-sum = 1
-
+tot = 1
 for i in range(number):
-    sum *= i+1
+    tot *= i+1
 
-print(sum)
+print(tot)
