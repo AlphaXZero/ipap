@@ -16,16 +16,16 @@ horses_nbr = int(input("Combien de chevaux vont participer ? "))
 horses_bet = int(input("Sur combien de chevaux vous jouez ? "))
 
 horses_nbr_fact = 1
-for i in range(horses_nbr):
-    horses_nbr_fact *= i+1
+for i in range(1, horses_nbr + 1):
+    horses_nbr_fact *= i
 
 horses_bet_fact = 1
-for i in range(horses_nbr):
-    horses_bet_fact *= i+1
+for i in range(1, horses_bet + 1):
+    horses_bet_fact *= i
 
 horses_nbr_bet_fact = 1
-for i in range(horses_nbr):
-    horses_nbr_bet_fact *= i+1
+for i in range(1, horses_nbr-horses_bet + 1):
+    horses_nbr_bet_fact *= i
 
 print(f"Dans l'odre : une chance sur {horses_nbr_fact / horses_nbr_bet_fact} de gagner")
-print(f"Dans le désordre : une chance sur {horses_nbr / (horses_bet_fact * horses_nbr_bet_fact)} de gagner")
+print(f"Dans le désordre : une chance sur {horses_nbr_fact / (horses_bet_fact * horses_nbr_bet_fact)} de gagner")

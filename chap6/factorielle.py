@@ -7,7 +7,7 @@ __version__ = 0.1
 
 number = int(input("Entrez un nombre : "))
 tot = 1
-for i in range(number):
-    tot *= i+1
+for i in range(1, number + 1):
+    tot *= i
 
 print(tot)
