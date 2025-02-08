@@ -9,14 +9,12 @@ __version__ = 0.1
 maxi = -100000000000
 pos = 0
 counter = 0
-is_zero = False
+in_usr = -1
 
-while not is_zero:
+while in_usr != 0:
     counter += 1
     in_usr = int(input("Entrez un nombre ou 0 pour arrêter : "))
-    if in_usr == 0:
-        is_zero = True
-    elif in_usr > maxi:
+    if in_usr > maxi:
         pos = counter
         maxi = in_usr
 
