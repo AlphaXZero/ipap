@@ -22,4 +22,5 @@ for data in tab:
         nbr_pos += 1
     else:
         nbr_neg += 1
+        
 print(f"il y a {nbr_pos} nombres positifs et {nbr_neg} nombres négatifs")

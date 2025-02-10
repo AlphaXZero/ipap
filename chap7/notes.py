@@ -8,6 +8,6 @@ __version__ = 0.1
 tab = [0 for i in range(9)]
 
 for i in range(len(tab)):
-    tab[i] = input(f"Entrez votre {i+1} ème résultat")
+    tab[i] = input(f"Entrez votre {i+1} ème résultat : ")
 
 print(tab)
