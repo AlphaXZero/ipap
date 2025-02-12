@@ -11,9 +11,13 @@ et 𝑝 le nombre de chevaux joués. Pour rappel, le signe ! signifie factoriell
 __author__ = Gvanderveen
 __version__ = 0.1
 """
-
-horses_nbr = int(input("Combien de chevaux vont participer ? ")) 
-horses_bet = int(input("Sur combien de chevaux vous jouez ? "))
+while True:
+    horses_nbr = int(input("Combien de chevaux vont participer ? ")) 
+    horses_bet = int(input("Sur combien de chevaux vous jouez ? "))
+    if horses_bet < 1 or horses_nbr < 1:
+        print("mauvaise saisie : pariez au moins sur un cheval et au moins un cheval doit participer")
+    else:
+        break
 
 horses_nbr_fact = 1
 for i in range(1, horses_nbr + 1):
