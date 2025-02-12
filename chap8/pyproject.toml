@@ -1,10 +1,7 @@
 [project]
-name = "ipap"
+name = "chap8"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = []
-
-[tool.uv.workspace]
-members = ["chap2", "chap3", "chap4", "chap5", "tommorow", "chap6", "chap7", "chap8"]
