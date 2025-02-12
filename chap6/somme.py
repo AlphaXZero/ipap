@@ -8,8 +8,6 @@ __version__ = 0.1
 
 number = int(input("Entrez un nombre : "))
 sum_a = 0
-
 for i in range(number):
     sum_a += i+1
-
 print(sum_a)

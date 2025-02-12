@@ -5,7 +5,7 @@ __author__ = Gvanderveen
 __version__ = 0.1
 """
 
-tab = [[i for i in range(13)] for y in range(6)]
+tab = [[i for i in range(13)] for j in range(6)]
 
 maxi = -100000000
 

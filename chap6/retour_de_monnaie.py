@@ -11,7 +11,10 @@ total = 0
 usr_in = -1
 while usr_in != 0:
     usr_in = int(input("Entre un prix ou 0 pour arrêter : "))
-    total += usr_in
+    if usr_in > 0:
+        total += usr_in
+    else:
+        print("nombre invalide")
 
 print(f"Total : {total}€ soit :")
 # j'ai déduis qu'on avait le droit car on avait utilisé les tuples pour l'exo sur le jour en plus
