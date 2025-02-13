@@ -11,18 +11,23 @@ __author__ = Gvanderveen
 __version__ = 0.1
 """
 
+# TODO : changer verif limit tableau + verifier erreur input
+
 board = [["O" for i in range(10)] for j in range(10)]
-board_y = int(input("Entrez la colonne de votre pion"))
-board_x = int(input("Entrez la ligne de votre pion"))
+board_y = int(input("Entrez la colonne de votre pion")) - 1
+board_x = int(input("Entrez la ligne de votre pion")) - 1
 
 board[board_y][board_x] = "X"
+for i in board:
+    print(" ".join(i))
 
-print(f"vous êtes en {board_y + 1};{board_x + 1}")
 move_choice = int(
     input(
         "Comment souhaitez vous vous déplacer ? 7 (en haut à gauche), 9 (en haut à droite), 1 (en bas à gauche), 3 (en bas à droite) : "
     )
 )
+
+
 flag = False
 match move_choice:
     case 7:
@@ -51,5 +56,5 @@ if flag:
     print("impossible")
 else:
     board[board_y][board_x] = "O"
-    for i in range(len(board)):
-        print(" ".join(board[i]))
+    for i in board:
+        print(" ".join(i))

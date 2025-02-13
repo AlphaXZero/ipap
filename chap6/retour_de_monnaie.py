@@ -25,9 +25,10 @@ while True:
     else:
         print("Erreur : entrez une somme supérieure ou égale au prix total")
 
-# j'ai déduis qu'on avait le droit car on avait utilisé les tuples pour l'exo sur le jour en plus
-# mais sinon j'aurai fais une grosse formule à base de tot//500, (tot%500)//200, ect
+
 print(f"{usr_pay}€ à rendre soit : ")
 for i in (500, 200, 100, 50, 20, 10, 5, 2, 1):
+    # j'ai déduis qu'on avait le droit car on avait utilisé les tuples pour l'exo sur le jour en plus
+    # mais sinon j'aurai fais une grosse formule à base de tot//500, (tot%500)//200, ect
     print(f"-{'billets' if i > 2 else 'pièces'} de {i}€ remis : {usr_pay // i}")
     usr_pay %= i
