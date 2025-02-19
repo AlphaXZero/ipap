@@ -7,24 +7,24 @@ de base.
 __author__ = Gvanderveen
 __version__ = 0.1
 """
-
 nbr = 10
+
 nbr_init = nbr
-fly = 0
-h_fly = 0
+fly_time = 0
+high_fly_time = 0
 maxi = 0
 
 while nbr > 1:
     print(nbr)
     if nbr > nbr_init:
-        h_fly += 1
+        high_fly_time += 1
     if nbr > maxi:
         maxi = nbr
     if nbr % 2 == 0:
         nbr /= 2
     else:
         nbr = nbr * 3 + 1
-    fly += 1
+    fly_time += 1
 
 print(1)
-print(f"tps envol : {fly}, tps haut-vol : {h_fly}, max : {maxi}")
+print(f"tps envol : {fly_time}, tps haut-vol : {high_fly_time}, max : {maxi}")
