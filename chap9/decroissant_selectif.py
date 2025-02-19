@@ -4,7 +4,7 @@ __author__ = Gvanderveen
 __version__ = 0.1
 """
 import math
-
+#TODO utile le enumerate ?
 tab = [1, 12, 4, 5, 2, 9, -1, 9]
 for i, initial_index in enumerate(tab):
     maxi = -math.inf

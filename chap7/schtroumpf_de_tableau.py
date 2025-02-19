@@ -8,15 +8,15 @@ __version__ = 0.1
 
 # TODO : quelle verison est la bonne ?
 
-tab1 = [4, 8, 7, 9, 1, 5, 4, 6]
-tab2 = [7, 6, 5, 2, 1, 3, 7, 4]
+tab1 = [1,1]
+tab2 = [7,3]
 smurf = 0
 
 # for i in range(len(tab1)):
 #     smurf += tab1[i] * tab2[i]
 
 for i in tab1:
-    for j in tab1:
+    for j in tab2:
         smurf += i * j
 
 print(smurf)
