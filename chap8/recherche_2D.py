@@ -4,10 +4,10 @@ dimensions (12x8) préalablement rempli de valeurs numériques
 __author__ = Gvanderveen
 __version__ = 0.1
 """
-
+import math
 tab = [[i for i in range(13)] for j in range(6)]
 
-maxi = -100000000
+maxi = -math.inf
 
 for line in tab:
     for row in line:
