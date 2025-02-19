@@ -15,8 +15,8 @@ smurf = 0
 # for i in range(len(tab1)):
 #     smurf += tab1[i] * tab2[i]
 
-for i in range(len(tab1)):
-        for j in range(len(tab1)):
-            smurf += tab1[i] * tab2[j]
+for i in tab1:
+        for j in tab1:
+            smurf += i * j
 
 print(smurf)
