@@ -12,7 +12,7 @@ nbr_in = int(input("Combien de nombres allez vous saisir ? "))
 tab = [i for i in range(nbr_in)]
 
 for i in range(nbr_in):
-    tab[i] = int(input(f"Entre le nombre {i+1} sur {nbr_in} : "))
+    tab[i] = int(input(f"Entrez le nombre {i + 1} sur {nbr_in} : "))
 
 nbr_pos = 0
 nbr_neg = 0
@@ -22,5 +22,5 @@ for data in tab:
         nbr_pos += 1
     else:
         nbr_neg += 1
-        
+
 print(f"il y a {nbr_pos} nombres positifs et {nbr_neg} nombres négatifs")
