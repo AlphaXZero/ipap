@@ -10,6 +10,7 @@ members = [
     "chap6",
     "chap7",
     "chap8",
+    "chap9",
     "ipap",
 ]
 
@@ -57,6 +58,11 @@ source = { virtual = "chap7" }
 name = "chap8"
 version = "0.1.0"
 source = { virtual = "chap8" }
+
+[[package]]
+name = "chap9"
+version = "0.1.0"
+source = { virtual = "chap9" }
 
 [[package]]
 name = "ipap"
