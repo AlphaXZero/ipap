@@ -6,7 +6,7 @@ __author__ = Gvanderveen
 __version__ = 0.1
 """
 
-#TODO : quelle verison est la bonne ? 
+# TODO : quelle verison est la bonne ?
 
 tab1 = [4, 8, 7, 9, 1, 5, 4, 6]
 tab2 = [7, 6, 5, 2, 1, 3, 7, 4]
@@ -16,7 +16,7 @@ smurf = 0
 #     smurf += tab1[i] * tab2[i]
 
 for i in tab1:
-        for j in tab1:
-            smurf += i * j
+    for j in tab1:
+        smurf += i * j
 
 print(smurf)
