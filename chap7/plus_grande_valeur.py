@@ -21,5 +21,5 @@ for i in range(nbr_in):
 #         maxi = nbr
 #         ind = i + 1
 # print(f"la valeur max est {maxi} et se trouve à la {ind} ème position")
-#TODO bon ? 
+
 print(f"la valeur max est {max(tab)} et se trouve à la {tab.index(max(tab))+1} ème position")
