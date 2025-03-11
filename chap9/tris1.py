@@ -31,9 +31,11 @@ for i in range(1,len(tab)):
     if direction == 1:
         if tab[i]<tab[i-1] or tab[i]-tab[i-1] != 1:
             is_cons = False
+            break
     elif direction == -1:
         if tab[i]>tab[i-1] or tab[i]-tab[i-1] != -1:
             is_cons = False
+            break
 if is_cons:
     print("consécutif")
 else:
