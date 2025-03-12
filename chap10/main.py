@@ -17,6 +17,15 @@ def max1(a: int, b: int) -> int:
     return b
 
 
+def max1_2(a: int, b: int) -> int:
+    """
+    version opti
+    Écrivez une fonction qui demande deux paramètres entiers, puis qui renvoie le nombre
+    maximum
+    """
+    return max(a, b)
+
+
 def max2_1(*nbr: int) -> int:
     """
     version avec args
@@ -41,6 +50,15 @@ def max2_2(number_list: list) -> int:
         if n > maxi:
             maxi = n
     return maxi
+
+
+def max2_3(*nbr: int) -> int:
+    """
+    version avec args et opti
+    Écrivez  une  fonction  qui  demande  plusieurs  paramètres  entiers,  puis  qui  renvoie le
+    nombre maximum
+    """
+    return max(nbr)
 
 
 def fizzbuzz(nbr: int) -> str | int:
@@ -73,3 +91,30 @@ def permis(spd: int) -> str:
         return "OK"
     pts = (spd - 70) // 5
     return f" vous avez perdu {pts} points {', permis suspendu' if pts > 12 else ''}"
+
+
+def separate(nbr_list: list) -> list:
+    """
+    Écrivez une fonction qui sépare les 0 et les 1 d’une liste, en mettant les 0 en début et les
+    1 en fin de liste. Ex: separate([0,1,0,1,1,1,0]) >>> [0,0,0,1,1,1,1]
+    """
+    nbr0 = 0
+    nbr1 = 0
+    for i in range(len(nbr_list)):
+        if nbr_list[i] == 0:
+            nbr0 += 1
+        elif nbr_list[i] == 1:
+            nbr1 += 1
+    return [0] * nbr0 + [1] * nbr1
+
+
+def separate_opti(nbr_list: list) -> list:
+    """
+    version + compacte
+    Écrivez une fonction qui sépare les 0 et les 1 d’une liste, en mettant les 0 en début et les
+    1 en fin de liste. Ex: separate([0,1,0,1,1,1,0]) >>> [0,0,0,1,1,1,1]
+    """
+    return [0] * nbr_list.count(0) + [1] * nbr_list.count(1)
+
+
+print(separate([0, 1, 0, 1, 1, 1, 1, 0]))
