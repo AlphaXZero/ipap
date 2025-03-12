@@ -140,9 +140,33 @@ def dist_nbr(nbr: int) -> bool:
     False si tous les chiffres sont différents
     """
     nbr_to_list = sorted([i for i in str(nbr)])
-    for i in range(0,len(nbr_to_list)-1):
-        if nbr_to_list[i] == nbr_to_list[i+1]:
+    for i in range(0, len(nbr_to_list) - 1):
+        if nbr_to_list[i] == nbr_to_list[i + 1]:
             return False
     return True
 
 
+def is_palindrome(nbr: int) -> bool:
+    """
+    return true if the input is a palindrome
+
+    Args:
+        nbr (int): the number to check
+
+    Returns:
+        bool: True if palindrome / False either
+    """
+    nbr_list = [int(i) for i in str(nbr)]
+    padding = 1 if len(nbr_list) % 2 == 0 else 0
+    if nbr_list[: len(nbr_list) // 2] == nbr_list[:len(nbr_list) // 2 - padding:-1]:
+        return True
+    return False
+
+
+def nombres_palindromes_1():
+    """
+    Écrivez une fonction qui prend un nombre en paramètre et qui indique par True ou False
+    si le nombre est palindrome ou non.
+    Un nombre est un nombre palindrome s’il donne la même valeur en étant lu de gauche à
+    droite et de droite à gauche.
+    """
