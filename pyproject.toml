@@ -7,4 +7,4 @@ requires-python = ">=3.13"
 dependencies = []
 
 [tool.uv.workspace]
-members = ["chap2", "chap3", "chap4", "chap5", "tommorow", "chap6", "chap7", "chap8", "chap9"]
+members = ["chap2", "chap3", "chap4", "chap5", "tommorow", "chap6", "chap7", "chap8", "chap9", "chap10"]

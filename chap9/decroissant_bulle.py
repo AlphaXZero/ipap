@@ -4,7 +4,7 @@ __author__ = Gvanderveen
 __version__ = 0.1
 """
 
-tab = [1,12,4,5,2,9,-1,8]
+tab = [1,12,4,20,5,2,9,-1,8]
 
 for i in range(len(tab)-1,0,-1):
     for j in range(0,i):

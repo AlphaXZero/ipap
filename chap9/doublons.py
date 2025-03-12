@@ -21,4 +21,4 @@ while(is_typing):
 if dubble:
     print(f"il y a {dubble} doublons")
 else:
-    print("il y a aucun doublons")
+    print("il n'y a aucun doublons")
