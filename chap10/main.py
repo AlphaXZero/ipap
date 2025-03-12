@@ -148,13 +148,10 @@ def dist_nbr(nbr: int) -> bool:
 
 def is_palindrome(nbr: int) -> bool:
     """
-    return true if the input is a palindrome
-
-    Args:
-        nbr (int): the number to check
-
-    Returns:
-        bool: True if palindrome / False either
+    Écrivez une fonction qui prend un nombre en paramètre et qui indique par True ou False
+    si le nombre est palindrome ou non.
+    Un nombre est un nombre palindrome s’il donne la même valeur en étant lu de gauche à
+    droite et de droite à gauche.
     """
     nbr_list = [int(i) for i in str(nbr)]
     padding = 1 if len(nbr_list) % 2 == 0 else 0
@@ -163,10 +160,40 @@ def is_palindrome(nbr: int) -> bool:
     return False
 
 
-def nombres_palindromes_1():
+def nombres_palindromes_2() -> str:
     """
-    Écrivez une fonction qui prend un nombre en paramètre et qui indique par True ou False
-    si le nombre est palindrome ou non.
-    Un nombre est un nombre palindrome s’il donne la même valeur en étant lu de gauche à
-    droite et de droite à gauche.
+    Le plus grand nombre palindrome obtenu comme produit de deux entiers à deux chiffres
+    est 9009 = 91 × 99.
+    Écrivez un programme qui permet de trouver le plus grand nombre palindrome obtenu
+    comme produit de deux entiers à trois chiffres.
     """
+    maxi = -math.inf
+    for i in range(100,1000):
+        for j in range(100,1000):
+            if is_palindrome(i*j) and i*j > maxi:
+                maxi = i*j
+                ind = i,j
+    print(f"Le plus grand nombre palindrome obtenable avec 2 entiers à 3 chiffres est {maxi} obtenu à partir de {ind[0]} et {ind[1]}")
+
+
+def is_prime(nbr: int) -> bool:
+    """
+    return True if the int input is prime else False
+    """
+    if (nbr % 2 ==0 or nbr % 3 ==0 or nbr % 5 == 0 or nbr % 7 == 0) and nbr not in [1,2,3,5,7]:
+        return False
+    return True
+
+
+def nombres_circulaires_premiers():
+    """
+    Écrivez une fonction qui prend en paramètre un nombre entier et qui teste si le nombre
+    est circulaire premier. Un nombre est circulaire premier si la rotation de ses chiffres
+    sont également des nombres premiers. Ex : 71 est circulaire premier, car 17 est premier et
+    71 l’est aussi.
+    """
+
+
+
+if __name__ == '__main__':
+    print(is_prime(12))

@@ -5,5 +5,5 @@ __author__ = Gvanderveen
 __version__ = 0.1
 """
 
-tab = [i for i in "aeiouy"]
-print(tab)
+
+print(list("aeiouy"))
