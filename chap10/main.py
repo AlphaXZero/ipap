@@ -131,9 +131,18 @@ def sumcode(nbr: int) -> int:
     code = nbr
     while code > 9:
         code = sum([int(i) for i in str(code)])
-    return int(str(code)+str(nbr))
+    return int(str(code) + str(nbr))
 
 
+def dist_nbr(nbr: int) -> bool:
+    """
+    Écrivez une fonction qui prend en paramètre un nombre entier et qui indique par True ou
+    False si tous les chiffres sont différents
+    """
+    nbr_to_list = sorted([i for i in str(nbr)])
+    for i in range(0,len(nbr_to_list)-1):
+        if nbr_to_list[i] == nbr_to_list[i+1]:
+            return False
+    return True
 
 
-print(sumcode(69810))
