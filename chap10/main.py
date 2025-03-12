@@ -117,4 +117,23 @@ def separate_opti(nbr_list: list) -> list:
     return [0] * nbr_list.count(0) + [1] * nbr_list.count(1)
 
 
-print(separate([0, 1, 0, 1, 1, 1, 1, 0]))
+def sumcode(nbr: int) -> int:
+    """
+    Écrivez une fonction qui prend en paramètre un nombre strictement supérieur à 100
+    et qui permet ensuite de déterminer un code à partir de ce nombre, selon les étapes
+    suivantes :
+    • Faire la somme des chiffres du nombre passé en paramètre.
+    • Recommencer l’opération tant que le code est supérieur à 9.
+    Ex : sumcode(69810) >>> 669810
+    """
+    if nbr <= 100:
+        print("Réessayez avec un nombre strictement supérieur à 100")
+    code = nbr
+    while code > 9:
+        code = sum([int(i) for i in str(code)])
+    return int(str(code)+str(nbr))
+
+
+
+
+print(sumcode(69810))
