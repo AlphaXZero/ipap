@@ -1,5 +1,6 @@
 """
 Écrivez un algorithme qui trie un tableau dans l’ordre décroissant avec un tri par bulle
+__author__ = Gvanderveen
 __version__ = 0.1
 """
 

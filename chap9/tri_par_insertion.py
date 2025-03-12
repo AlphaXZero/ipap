@@ -7,10 +7,10 @@ __version__ = 0.1
 tab = [1,12,4,5,2,9,-1,8]
 
 for i in range(1,len(tab)):
-    for j in range(i-1,-1,-1):
-        if tab[j+1]>tab[j]:
-            tab[j+1] , tab[j] = tab[j],tab[j+1]
-         
-
+    for j in range(i):
+        if tab[j]>tab[j-1]:
+            for x in range(0,i):
+                if tab[j]>tab[x]:
+                    tab[j],tab[x]=tab[x],tab[j]
 
 print(tab)
