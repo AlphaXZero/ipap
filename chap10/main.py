@@ -185,15 +185,18 @@ def is_prime(nbr: int) -> bool:
     return True
 
 
-def nombres_circulaires_premiers():
+def nombres_circulaires_premiers(nbr: int) -> bool:
     """
     Écrivez une fonction qui prend en paramètre un nombre entier et qui teste si le nombre
     est circulaire premier. Un nombre est circulaire premier si la rotation de ses chiffres
     sont également des nombres premiers. Ex : 71 est circulaire premier, car 17 est premier et
     71 l’est aussi.
     """
+    if is_prime(nbr) and is_prime(int(str(nbr)[-1::-1])):
+        return True
+    return False
 
 
 
 if __name__ == '__main__':
-    print(is_prime(12))
+    print(nombres_circulaires_premiers(10))
