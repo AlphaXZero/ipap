@@ -34,7 +34,7 @@ def syracuse(nbr):
         return syracuse((nbr * 3) + 1)
 
 
-def fibonnaci(n, nbr=0, nbr_av=1):
+def fibonnaci(n: int, nbr=0, nbr_av=1) -> None:
     """
     Écrivez une fonction récursive qui calcule le nème élément de la suite de Fibonacci. En
     mathématiques, la suite de Fibonacci est une suite de nombres entiers dont chaque terme
@@ -46,5 +46,15 @@ def fibonnaci(n, nbr=0, nbr_av=1):
         return fibonnaci(n - 1, nbr=(nbr + nbr_av), nbr_av=nbr)
 
 
+def somme_digits(nbr: int, sumi=0) -> int:
+    """
+    Écrivez une fonction récursive qui additionne chaque chiffre d’un nombre donné. Ex :
+    func(354) = 12
+    """
+    if nbr == 0:
+        return sumi
+    return somme_digits(nbr // 10, sumi=sumi + nbr % 10)
+
+
 if __name__ == "__main__":
-    print(fibonnaci(10))
+    print(somme_digits(123))
