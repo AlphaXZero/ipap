@@ -1,3 +1,10 @@
+"""
+Les exos du chap 11
+__author__ = Gvanderveen
+__version__ = 0.1
+"""
+
+
 def somme(nbr: int) -> int:
     """
     Écrivez  une  fonction  récursive  qui  renvoie  la  somme  des  nombres  entiers  jusqu’à  un
@@ -25,9 +32,19 @@ def syracuse(nbr):
         return syracuse(nbr // 2)
     else:
         return syracuse((nbr * 3) + 1)
-    
 
+
+def fibonnaci(n, nbr=0, nbr_av=1):
+    """
+    Écrivez une fonction récursive qui calcule le nème élément de la suite de Fibonacci. En
+    mathématiques, la suite de Fibonacci est une suite de nombres entiers dont chaque terme
+    successif est la somme des deux termes précédents, et qui commence par 0 et 1.
+    Par exemple, les dix premiers nombres de la suite sont : 0,1,1,2,3,5,8,13,21,34
+    """
+    print(nbr)
+    if n > 1:
+        return fibonnaci(n - 1, nbr=(nbr + nbr_av), nbr_av=nbr)
 
 
 if __name__ == "__main__":
-    syracuse(14)    
+    print(fibonnaci(10))
