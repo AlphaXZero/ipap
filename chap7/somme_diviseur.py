@@ -10,9 +10,7 @@ __version__ = 0.1
 tab = []
 
 for i in range(100, 1000):
-    stri = str(i)
-    if (int(stri[0]) * int(stri[1]) * int(stri[2])) % (
-        int(stri[0]) + int(stri[1]) + int(stri[2])
-    ) == 0:
+    a, b, c = map(int, str(i))
+    if (a * b * c) % (a + b + c) == 0:
         tab += [i]
 print(tab)

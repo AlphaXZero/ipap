@@ -6,17 +6,11 @@ __author__ = Gvanderveen
 __version__ = 0.1
 """
 
-# TODO : quelle verison est la bonne ?
 
-tab1 = [1,1]
+tab1 = [1,2]
 tab2 = [7,3]
 smurf = 0
-
-# for i in range(len(tab1)):
-#     smurf += tab1[i] * tab2[i]
-
 for i in tab1:
     for j in tab2:
         smurf += i * j
-
 print(smurf)

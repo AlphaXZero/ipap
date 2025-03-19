@@ -15,7 +15,7 @@ def somme(nbr: int) -> int:
     return nbr + somme(nbr - 1)
 
 
-def syracuse(nbr):
+def syracuse(nbr: int) -> int:
     """
     Écrivez une fonction récursive qui affiche les éléments de la conjecture de Syracuse. Pour
     rappel, la conjecture de Syracuse est une suite d’entiers naturels définie de la manière
@@ -53,8 +53,88 @@ def somme_digits(nbr: int, sumi=0) -> int:
     """
     if nbr == 0:
         return sumi
-    return somme_digits(nbr // 10, sumi=sumi + nbr % 10)
+    return somme_digits(nbr // 10, sumi + nbr % 10)
+
+
+def somme_harmonique(occu: int, sumi=0) -> int:
+    """
+    Écrivez une fonction récursive qui affiche le nème élément de la suite harmonique. Une
+    suite harmonique est la somme des éléments inverses : 1/1 + 1/2 + 1/3 + 1/4
+    """
+    if occu == 0:
+        return sumi
+    return somme_harmonique(occu - 1, sumi + 1 / occu)
+
+
+def convert_b2d(nbr: int, result="b") -> int:
+    """
+    Écrivez une fonction récursive qui convertisse un nombre décimal en un nombre binaire.
+    Ex : func(12) = b1100.
+    """
+    if nbr == 0:
+        return result
+    return convert_b2d(nbr // 2, result + ("1" if nbr % 2 == 0 else "0"))
+
+
+def gcd_calculator(nbr1: int, nbr2: int, gcd=1, actu=1) -> int:
+    """
+    Écrivez une fonction récursive qui calcule le GCD (Grand Commun Diviseur) entre deux
+    nombres.
+    """
+    if actu > nbr1 or actu > nbr2:
+        return gcd
+    return (
+        gcd_calculator(nbr1, nbr2, actu, actu + 1)
+        if nbr1 % actu == 0 and nbr2 % actu == 0
+        else gcd_calculator(nbr1, nbr2, gcd, actu + 1)
+    )
+
+
+def recurse_hanoi_resolver():
+    """
+    Écrivez une fonction récursive qui affiche les étapes de résolution des Tours de Hanoï.
+    """
+
+
+def hanoi_print(repr: list) -> None:
+    """
+    Show hannoi
+    """
+    maxi = max(repr, key=len)
+    for i in range(len(maxi)):
+        maxi = len(max(repr, key=len))
+        for y in range(3):
+            if len(repr[y]) == maxi:
+                print(repr[y].pop(),end="  ")
+            else:
+                print("   ",end="")
+        print("")
+
+
+
+def is_even(nbr):
+    """
+    crivez deux fonctions récursives mutuelles permettant de tester si un nombre est pair
+    ou impair. Ex:
+    is_even(5) >>> False 
+    is_odd(7) >>> True
+    """
+    if nbr%2==0:
+        return True
+    return is_odd(nbr)
+
+def is_odd(nbr):
+    """
+    crivez deux fonctions récursives mutuelles permettant de tester si un nombre est pair
+    ou impair. Ex:
+    is_even(5) >>> False 
+    is_odd(7) >>> True
+    """
+    if nbr%2!=0:
+        return False
+    return is_even(nbr)
 
 
 if __name__ == "__main__":
-    print(somme_digits(123))
+    jeu=[[2,4],[3],[1,5]]
+    hanoi_print(jeu)

@@ -7,19 +7,7 @@ tableau dans un second temps
 __author__ = Gvanderveen
 __version__ = 0.1
 """
-import math
+
 nbr_in = int(input("Combien de nombres allez vous saisir ? "))
-tab = [i for i in range(nbr_in)]
-
-for i in range(nbr_in):
-    tab[i] = int(input(f"Entre le nombre {i+1} sur {nbr_in} : "))
-
-# maxi = -math.inf
-# ind = 0
-# for i, nbr in enumerate(tab):
-#     if nbr > maxi:
-#         maxi = nbr
-#         ind = i + 1
-# print(f"la valeur max est {maxi} et se trouve à la {ind} ème position")
-
+tab = [int(input(f"Entre le nombre {i+1} sur {nbr_in} : ")) for i in range(nbr_in)]
 print(f"la valeur max est {max(tab)} et se trouve à la {tab.index(max(tab))+1} ème position")

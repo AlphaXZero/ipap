@@ -6,9 +6,8 @@ __version__ = 0.1
 """
 
 tab1 = [4,8,7,9,1,5,4,6]
-tab2 = [7,6,5,2,1,3,7,4]
-tab_summed = [0 for i in tab1]
-
+tab2 = [7,6,5,2,1,3,7,4]    
+tab_summed = []
 for i in range(len(tab1)):
-    tab_summed[i] = tab1[i]+tab2[i]
+    tab_summed.append(tab1[i]+tab2[i])
 print(tab_summed)
