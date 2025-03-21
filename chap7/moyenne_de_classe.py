@@ -8,7 +8,7 @@ __version__ = 0.1
 
 tab = []
 while True:
-    usr_in = int(input("Entrez un nombre ou -1 pour arrêter : "))
+    usr_in = int(input("Entrez une note ou -1 pour arrêter : "))
     if usr_in == -1:
         break
     else:
@@ -19,4 +19,7 @@ avg = sum(tab) / len(tab)
 print(
     f"Les notes sont {tab}, la moyenne est {avg}, il y a {len([1 for note in tab if note > avg])} notes au dessus de la moyenne"
 )
-    
+
+print(
+    f"Les notes sont {tab}, la moyenne est {avg}, il y a {len(list(filter(lambda x: x > avg,tab)))} notes au dessus de la moyenne"
+)

@@ -108,7 +108,7 @@ def hanoi_print(repr: list) -> None:
                 print(repr[y].pop(),end="  ")
             else:
                 print("   ",end="")
-        print("")
+        print("")   
 
 
 

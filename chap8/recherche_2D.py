@@ -4,14 +4,18 @@ dimensions (12x8) préalablement rempli de valeurs numériques
 __author__ = Gvanderveen
 __version__ = 0.1
 """
+import random
 import math
-tab = [[i for i in range(13)] for j in range(6)]
+tab = [[random.randint(0,400) for i in range(12)] for j in range(8)]
+print(tab)
+def max_finder(inp: list) -> int:
+    """
+    Iterate through a 2D list and return its maximum value
+    """
+    maxi = -math.inf
+    for line in inp:
+        if max(line) > maxi:
+            maxi = max(line)
+    return maxi
 
-maxi = -math.inf
-
-for line in tab:
-    for row in line:
-        if row > maxi:
-            maxi = row
-
-print(maxi)
+print(max_finder(tab))
