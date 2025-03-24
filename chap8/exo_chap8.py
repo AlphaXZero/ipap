@@ -23,6 +23,7 @@ def twoD_max(list_input: list) -> int:
 def print_board_checkers(board: list) -> None:
     """
     prints the board
+    sub-fonction for one_move_checkers()
     """
     for i in board:
         print(" ".join(i))
@@ -31,6 +32,7 @@ def print_board_checkers(board: list) -> None:
 def is_in_grid(x: int, y: int) -> bool:
     """
     return True if the two entry are between 0 and 9
+    sub-fonction for one_move_checkers()
     """
     return 0 <= x < 10 and 0 <= y < 10
 
@@ -46,13 +48,14 @@ def one_move_checkers():
     s’arrête là. Sinon, on déplace le pion et on affiche le damier résultant, en affichant un O
     pour une case vide et un X pour la case où se trouve le pion
     """
-    board = [["O" for i in range(10)] for j in range(10)]
+    board = [["O" for _ in range(10)] for _ in range(10)]
 
     # je fais -1 pour que ce soit + userfriendly colonne 0 -> 1
     board_y = int(input("Entrez la colonne de votre pion: ")) - 1
     board_x = int(input("Entrez la ligne de votre pion: ")) - 1
     if not is_in_grid(board_x, board_y):
-        return "Cette case n'existe pas"
+        print("Cette case n'existe pas")
+        return -1
 
     board[board_y][board_x] = "X"
     print_board_checkers(board)
@@ -65,22 +68,22 @@ def one_move_checkers():
     flag = False
     match move_choice:
         case 7:
-            if 0 <= board_y - 1 < 10 and 0 <= board_x - 1 < 10:
+            if is_in_grid(board_x - 1, board_y - 1):
                 board_y, board_x = board_y - 1, board_x - 1
             else:
                 flag = True
         case 9:
-            if 0 <= board_y - 1 < 10 and 0 <= board_x + 1 < 10:
+            if is_in_grid(board_x + 1, board_y - 1):
                 board_y, board_x = board_y - 1, board_x + 1
             else:
                 flag = True
         case 1:
-            if 0 <= board_y + 1 < 10 and 0 <= board_x - 1 < 10:
+            if is_in_grid(board_x - 1, board_y + 1):
                 board_y, board_x = board_y + 1, board_x - 1
             else:
                 flag = True
         case 3:
-            if 0 <= board_y + 1 < 10 and 0 <= board_x + 1 < 10:
+            if is_in_grid(board_x + 1, board_y + 1):
                 board_y, board_x = board_y + 1, board_x + 1
             else:
                 flag = True
@@ -88,15 +91,12 @@ def one_move_checkers():
             print("Entrez un déplacement valide 1/3/7/9")
 
     if flag:
-        print("impossible, bord du terrain: ")
-    board[board_y][board_x] = "X"
-    print_board_checkers(board)
+        print("impossible, bord du terrain")
+    else:
+        board[board_y][board_x] = "X"
+        print_board_checkers(board)
 
 
 if __name__ == "__main__":
     """main func"""
-    tab = twoD_init()
-    print(tab)
-    for i in tab:
-        print(i)
-    # one_move_checkers()
+    one_move_checkers()
