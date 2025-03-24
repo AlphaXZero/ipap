@@ -14,6 +14,7 @@ def print_board(board: list) -> None:
 
 def one_move_checkers():
     """
+    BOUCLE
     Écrivez un algorithme de jeu de dames très simplifié.
     L’ordinateur demande à l’utilisateur dans quelle case se trouve son pion (ligne, colonne).
     On met en place un contrôle de saisie afin de vérifier la validité des valeurs entrées.
