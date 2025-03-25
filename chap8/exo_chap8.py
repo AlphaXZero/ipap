@@ -15,7 +15,8 @@ def twoD_init() -> list:
 
 def twoD_max(list_input: list) -> int:
     """
-    Iterate through a 2D list and return its maximum value
+    Écrivez un algorithme qui recherche la plus grande valeur au sein d’un tableau à deux
+    dimensions (12x8) préalablement rempli de valeurs numériques.
     """
     return max([max(line) for line in list_input])
 
