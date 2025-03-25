@@ -4,6 +4,9 @@ __author__ = Gvanderveen
 __version__ = 0.1
 """
 
+ALPHAB = "abcdefghijklmnopqrstuvwxyza  "
+ALPHAB2 = "abcdefghijklmnopqrstuvwxyz"
+
 
 def letter_count():
     """
@@ -52,5 +55,31 @@ def str_inverter():
     )
 
 
+def coding():
+    """
+    Un des plus anciens systèmes de cryptographie consiste à décaler les lettres d’un message
+    pour le rendre illisible. Ainsi, les a deviennent des b, etc.
+    Écrivez  un  algorithme  qui  demande  une  phrase  à  l’utilisateur  et  qui  la  code  selon  ce
+    principe.
+    """
+    usr_in = input("Entrez votre phrase : ").lower()
+    print(
+        f"voici votre phrase codé : {''.join([ALPHAB[ALPHAB.index(i) + 1] for i in usr_in])}"
+    )
+
+
+def caesar_coding():
+    """
+    Une amélioration du principe précédent consiste à opérer un décalage d’un nombre quel-
+    conque de lettres
+    """
+    usr_in = list(input("Entrez votre phrase : ").lower())
+    padding_in = int(input("Entrez le décalage souhaité : "))
+    for i in range(len(usr_in)):
+        if usr_in[i] in ALPHAB2:
+            usr_in[i] = ALPHAB2[(ALPHAB2.index(usr_in[i]) + padding_in) % len(ALPHAB2)]
+    print("".join(usr_in))
+
+
 if __name__ == "__main__":
-    str_inverter()
+    caesar_coding()
