@@ -9,7 +9,7 @@ __version__ = 0.1
 
 tab = [1, 3, 10, 3, 2, 10]
 print(tab)
-#TODO pop ? del ?
+
 ind_to_rem = int(input("Entrez l'indice de la liste que vous voulez retirer"))
 
 tab = tab[0:ind_to_rem] + tab[ind_to_rem + 1 : len(tab)]

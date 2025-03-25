@@ -5,18 +5,18 @@ ou aucun doublon le cas échéant
 __author__ = Gvanderveen
 __version__ = 0.1
 """
-#TODO break ?
+
 is_typing = True
-tab=[]
+tab = []
 dubble = 0
 
-while(is_typing):
+while is_typing:
     usr_in = input("Entre un nombre ou q pour arrêter : ")
     if usr_in == "q":
         is_typing = False
     else:
         if usr_in in tab:
-            dubble +=1
+            dubble += 1
         tab.append(usr_in)
 if dubble:
     print(f"il y a {dubble} doublons")

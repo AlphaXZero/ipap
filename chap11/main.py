@@ -90,10 +90,11 @@ def gcd_calculator(nbr1: int, nbr2: int, gcd=1, actu=1) -> int:
     )
 
 
-def recurse_hanoi_resolver():
+def recurse_hanoi_resolver(tours, n, source, cible, auxiliaire):
     """
     Écrivez une fonction récursive qui affiche les étapes de résolution des Tours de Hanoï.
     """
+    # TODO faire
 
 
 def hanoi_print(repr: list) -> None:
@@ -105,36 +106,37 @@ def hanoi_print(repr: list) -> None:
         maxi = len(max(repr, key=len))
         for y in range(3):
             if len(repr[y]) == maxi:
-                print(repr[y].pop(),end="  ")
+                print(repr[y].pop(), end="  ")
             else:
-                print("   ",end="")
-        print("")   
-
+                print("| ", end=" ")
+        print("")
 
 
 def is_even(nbr):
     """
     crivez deux fonctions récursives mutuelles permettant de tester si un nombre est pair
     ou impair. Ex:
-    is_even(5) >>> False 
+    is_even(5) >>> False
     is_odd(7) >>> True
     """
-    if nbr%2==0:
+    if nbr % 2 == 0:
         return True
     return is_odd(nbr)
+
 
 def is_odd(nbr):
     """
     crivez deux fonctions récursives mutuelles permettant de tester si un nombre est pair
     ou impair. Ex:
-    is_even(5) >>> False 
+    is_even(5) >>> False
     is_odd(7) >>> True
     """
-    if nbr%2!=0:
+    if nbr % 2 != 0:
         return False
     return is_even(nbr)
 
 
 if __name__ == "__main__":
-    jeu=[[2,4],[3],[1,5]]
+    jeu = [[3, 2, 1], [], []]
     hanoi_print(jeu)
+    recurse_hanoi_resolver(jeu, 3, 0, 2, 1)
