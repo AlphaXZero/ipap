@@ -13,7 +13,7 @@ __version__ = 0.1
 is_typing = True
 tab = []
 
-while(is_typing):
+while is_typing:
     usr_in = input("Entrez un nombre ou q pour arrêter : ")
     if usr_in == "q":
         is_typing = False
@@ -21,19 +21,19 @@ while(is_typing):
         tab.append(int(usr_in))
 
 print(tab)
-is_cons =True
+is_cons = True
 direction = 0
-if tab[1]>tab[0]:
+if tab[1] > tab[0]:
     direction = 1
 else:
     direction = -1
-for i in range(1,len(tab)):
+for i in range(1, len(tab)):
     if direction == 1:
-        if tab[i]<tab[i-1] or tab[i]-tab[i-1] != 1:
+        if tab[i] < tab[i - 1] or tab[i] - tab[i - 1] != 1:
             is_cons = False
             break
     elif direction == -1:
-        if tab[i]>tab[i-1] or tab[i]-tab[i-1] != -1:
+        if tab[i] > tab[i - 1] or tab[i] - tab[i - 1] != -1:
             is_cons = False
             break
 if is_cons:

@@ -81,5 +81,55 @@ def caesar_coding():
     print("".join(usr_in))
 
 
+def advanced_coding():
+    """
+    Une technique ultérieure de cryptographie consiste à opérer non avec un décalage systé-
+    matique, mais par une substitution aléatoire. Pour cela, on utilise un alphabet-clé dans
+    lequel les lettres se succèdent de façon désordonnée. Par exemple:
+    C’est cette clé qui va servir ensuite à coder le message.
+    Écrivez un algorithme qui effectue ce cryptage. L’utilisateur entrera son alphabet-clé (on
+    suppose qu’il le fera sans erreurs), puis une phrase à coder. L’algorithme affichera la phrase
+    codée.
+    """
+    usr_in = list(input("Entrez la phrase à coder : ").lower())
+    ALPHAC = input("Entrez la phrase-clé : ")
+    for i in range(len(usr_in)):
+        if usr_in[i] in ALPHAC:
+            usr_in[i] = ALPHAC[(ALPHAC.index(usr_in[i]) + 1) % len(ALPHAC)]
+    print("".join(usr_in))
+
+
+def vigner_coding():
+    """
+    Le chiffre de Vigenère est beaucoup plus difficile à briser que les précédents. Il consiste
+    en une combinaison de différents chiffres de César.
+    On peut en effet écrire 25 alphabets décalés par rapport à l’alphabet normal:
+    • l’alphabet qui commence par b et finit par yza;
+    • l’alphabet qui commence par c et finit par zab;
+    • etc.
+    Le codage va s’effectuer sur le principe du code de César: on remplace la lettre d’origine
+    par la lettre occupant la même place dans l’alphabet décalé. Mais à la différence du chiffre
+    de César, un même message va utiliser non un, mais plusieurs alphabets décalés. Pour
+    savoir quels alphabets seront utilisés, et dans quel ordre, on utilise une clé.
+    Par exemple, si on prend la clé VIGENERE, et la phrase à coder Il faut coder cette phrase,
+    nous procéderons comme suit:
+    • La première lettre (I) sera codée en utilisant l’alphabet commençant par V. La neuvième
+    lettre de cet alphabet est le D.
+    • La seconde lettre (l) sera codée avec l’alphabet commençant par I. «L» étant la 12eme
+    lettre de l’alphabet normal, elle deviendra un t dans l’alphabet décalé.
+    • etc.
+    Écrivez l’algorithme qui effectue un cryptage de Vigenère, en demandant bien sûr au départ
+    la clé à l’utilisateur
+    """
+    usr_in = list(input("Entrez la phrase à coder : ").lower())
+    KEY = input("Entrez la phrase-clé : ")
+    for i in range(len(usr_in)):
+        if usr_in[i] in ALPHAB2:
+            usr_in[i] = ALPHAB2[
+                (ALPHAB2.index(KEY[i]) + ALPHAB2.index(usr_in[i])) % len(ALPHAB2)
+            ]
+    print("".join(usr_in))
+
+
 if __name__ == "__main__":
-    caesar_coding()
+    vigner_coding()
