@@ -153,11 +153,7 @@ def is_palindrome(nbr: int) -> bool:
     Un nombre est un nombre palindrome s’il donne la même valeur en étant lu de gauche à
     droite et de droite à gauche.
     """
-    nbr_list = [int(i) for i in str(nbr)]
-    padding = 1 if len(nbr_list) % 2 == 0 else 0
-    if nbr_list[: len(nbr_list) // 2] == nbr_list[:len(nbr_list) // 2 - padding:-1]:
-        return True
-    return False
+    return str(nbr) == str(nbr)[::-1]
 
 
 def nombres_palindromes_2() -> str:
@@ -168,19 +164,27 @@ def nombres_palindromes_2() -> str:
     comme produit de deux entiers à trois chiffres.
     """
     maxi = -math.inf
-    for i in range(100,1000):
-        for j in range(100,1000):
-            if is_palindrome(i*j) and i*j > maxi:
-                maxi = i*j
-                ind = i,j
-    print(f"Le plus grand nombre palindrome obtenable avec 2 entiers à 3 chiffres est {maxi} obtenu à partir de {ind[0]} et {ind[1]}")
+    for i in range(100, 1000):
+        for j in range(100, 1000):
+            if is_palindrome(i * j) and i * j > maxi:
+                maxi = i * j
+                ind = i, j
+    print(
+        f"Le plus grand nombre palindrome obtenable avec 2 entiers à 3 chiffres est {maxi} obtenu à partir de {ind[0]} et {ind[1]}"
+    )
 
 
 def is_prime(nbr: int) -> bool:
     """
     return True if the int input is prime else False
     """
-    if (nbr % 2 ==0 or nbr % 3 ==0 or nbr % 5 == 0 or nbr % 7 == 0) and nbr not in [1,2,3,5,7]:
+    if (nbr % 2 == 0 or nbr % 3 == 0 or nbr % 5 == 0 or nbr % 7 == 0) and nbr not in [
+        1,
+        2,
+        3,
+        5,
+        7,
+    ]:
         return False
     return True
 
@@ -197,6 +201,5 @@ def nombres_circulaires_premiers(nbr: int) -> bool:
     return False
 
 
-
-if __name__ == '__main__':
-    print(nombres_circulaires_premiers(10))
+if __name__ == "__main__":
+    print(is_palindrome(30103))

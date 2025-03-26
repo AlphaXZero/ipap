@@ -4,6 +4,8 @@ __author__ = Gvanderveen
 __version__ = 0.1
 """
 
+from random import randrange, uniform
+
 ALPHAB = "abcdefghijklmnopqrstuvwxyza  "
 ALPHAB2 = "abcdefghijklmnopqrstuvwxyz"
 
@@ -131,5 +133,39 @@ def vigner_coding():
     print("".join(usr_in))
 
 
+def odd_or_even():
+    """
+    Écrivez un algorithme qui demande un nombre à l’utilisateur. L’ordinateur affiche ensuite
+    si ce nombre est pair ou impair
+    """
+    usr_in = int(input("Entrez un nombre : "))
+    print(f"Le nombre est {'pair' if usr_in % 2 == 0 else 'impair'}")
+
+
+def schpountz_number(type: int) -> int:
+    """
+    Écrivez différents algorithmes qui génèrent un nombre Schpountz aléatoire tel que:
+    • 0 =< 𝑆𝑐ℎ𝑝𝑜𝑢𝑛𝑡𝑧 < 2
+    • −1 =< 𝑆𝑐ℎ𝑝𝑜𝑢𝑛𝑡𝑧 < 1
+    • 1,35 ≤ 𝑆𝑐ℎ𝑝𝑜𝑢𝑛𝑡𝑧 < 1,65
+    • Schpountz simule un dé à six faces.
+    • −10,5 ≤ 𝑆𝑐ℎ𝑝𝑜𝑢𝑛𝑡𝑧 < +6,5
+    • Schpountz simule la somme d’un jet de deux dés à 6 faces.
+    """
+    match type:
+        case 1:
+            return randrange(0, 2)
+        case 2:
+            return randrange(-1, 1)
+        case 3:
+            return uniform(1.35, 1.65)
+        case 4:
+            return randrange(1, 7)
+        case 5:
+            return uniform(-10.5, 6.55)
+        case 6:
+            return (randrange(1, 7), randrange(1, 7))
+
+
 if __name__ == "__main__":
-    vigner_coding()
+    print(schpountz_number(6))
