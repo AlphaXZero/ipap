@@ -49,7 +49,7 @@ def check_answer(answer: str) -> bool:
     return answer.isdigit() and int(answer) in (1, 2, 3)
 
 
-def game_turn_human(fc_amount: int, p_name: list, p_turn: int, p_setting: int) -> int:
+def game_turn(fc_amount: int, p_name: list, p_turn: int, p_setting: int) -> int:
     """
     ask the player the amount of firecrackers he wants to take then returns it
     """
@@ -80,7 +80,7 @@ def main():
     p_turn = randint(0, 1)
     while fc_amount > 0:
         print_game(fc_amount)
-        fc_amount -= game_turn_human(fc_amount, p_name, p_turn, p_setting)
+        fc_amount -= game_turn(fc_amount, p_name, p_turn, p_setting)
         p_turn = (p_turn + 1) % 2
     print(f"<><> Partie finie, {p_name[p_turn]} a gagné <><>")
 
