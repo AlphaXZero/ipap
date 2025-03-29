@@ -12,8 +12,10 @@ __author__ = Gvanderveen
 __version__ = 0.1
 """
 
-from keyboard import is_pressed
+from keyboard import read_key
 from random import randrange
+
+colors = {2: "white", 4: ""}
 
 
 def show_game(board: list) -> None:
@@ -25,7 +27,7 @@ def show_game(board: list) -> None:
         print("\n---------------")
 
 
-def create_game() -> list:
+def create_board() -> list:
     """
     create a list with random entries of 2 or 4
     """
@@ -41,32 +43,35 @@ def check_input() -> int:
     4 -> left
     """
     print("Choisisez une direction")
-    while True:
-        if is_pressed("up") or is_pressed("z"):
-            return 1
-        if is_pressed("right") or is_pressed("d"):
-            return 2
-        if is_pressed("left") or is_pressed("q"):
-            return 4
-        if is_pressed("down") or is_pressed("s"):
-            return 3
+    usr_choice = read_key()
+    print(usr_choice)
+    if usr_choice in ("up", "z", "Z"):
+        return 1
+    if usr_choice in ("right", "d", "D"):
+        return 2
+    if usr_choice in ("down", "s", "S"):
+        return 3
+    if usr_choice in ("left", "q", "Q"):
+        return 4
 
 
-def do_merge(board: list, direction: int) -> list:
+def do_merge(board: list, direction: int, vertical=0) -> list:
     """
     merge all the adjacent number in the desired direction
     """
     # TODO : une fonction de plus pour enlever répétion ?
-    board = [i[::-1] for i in board] if direction == 2 else board
     if direction in (2, 4):
+        board = [i[::-1] for i in board] if direction == 2 else board
         for i in range(len(board)):
             for j in range(len(board) - 1):
                 if board[i][j + 1] == board[i][j]:
                     board[i][j] *= 2
                     board[i][j + 1] = 0
-        return board if direction == 4 else [i[::-1] for i in board]
-    print(board)
-    show_game(cleanse_zero(board, direction))
+        board = rotate_board(board) if vertical else board
+        return board if direction == 4 or vertical else [i[::-1] for i in board]
+    if direction == 1:
+        return do_merge(rotate_board(board), 4, 1)
+    return do_merge(rotate_board(board), 2, 1)
 
 
 def rotate_board(board: list) -> list:
@@ -94,17 +99,20 @@ def cleanse_zero(board: list, direction: int, vertical=0) -> list:
             return cleanse_zero(rotate_board(board), 4, 1)
         return cleanse_zero(rotate_board(board), 2, 1)
 
-    return clrd_board if vertical == 0 else rotate_board(clrd_board)
+    return rotate_board(clrd_board) if vertical else clrd_board
 
 
 def main() -> None:
     """
     main function of the game
     """
+    board = create_board()
+    show_game(board)
+    while 2048 not in board:
+        usr_in = check_input()
+        board = cleanse_zero(do_merge(board, usr_in), usr_in)
+        show_game(board)
 
 
 if __name__ == "__main__":
-    oui = create_game()
-    show_game(oui)
-    show_game(cleanse_zero(do_merge(oui, 4), 4))
-    show_game(cleanse_zero(do_merge(oui, 2), 2))
+    main()
