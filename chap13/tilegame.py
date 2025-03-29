@@ -52,31 +52,20 @@ def check_input() -> int:
             return 3
 
 
-def merge_row(row: list, direction: int) -> list:
-    padding = -1 if direction == 2 else 1
-    if board[i][j - 1] == board[i][j]:
-        board[i][j] *= 2
-        board[i][j - 1] = 0
-
-
 def do_merge(board: list, direction: int) -> list:
     """
     merge all the adjacent number in the desired direction
     """
     # TODO : une fonction de plus pour enlever répétion ?
-    if direction == 2:
-        for i in range(len(board)):
-            for j in range(len(board[i]) - 1, 0, -1):
-                if board[i][j - 1] == board[i][j]:
-                    board[i][j] *= 2
-                    board[i][j - 1] = 0
-    if direction == 4:
+    board = [i[::-1] for i in board] if direction == 2 else board
+    if direction in (2, 4):
         for i in range(len(board)):
             for j in range(len(board) - 1):
                 if board[i][j + 1] == board[i][j]:
                     board[i][j] *= 2
                     board[i][j + 1] = 0
-
+        return board if direction == 4 else [i[::-1] for i in board]
+    print(board)
     show_game(cleanse_zero(board, direction))
 
 
@@ -117,4 +106,5 @@ def main() -> None:
 if __name__ == "__main__":
     oui = create_game()
     show_game(oui)
-    do_merge(oui, 4)
+    show_game(cleanse_zero(do_merge(oui, 4), 4))
+    show_game(cleanse_zero(do_merge(oui, 2), 2))
