@@ -70,7 +70,7 @@ def game_turn(fc_amount: int, p_name: list, p_turn: int, p_setting: int) -> int:
     return int(player_choice)
 
 
-def main():
+def main() -> None:
     """
     main function for firecrackers game
     """

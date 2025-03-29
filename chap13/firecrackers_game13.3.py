@@ -79,16 +79,9 @@ def game_settings() -> tuple:
     return ask_fc_amount(), ask_game_type()
 
 
-def check_answer(answer: str) -> bool:
-    """
-    return True if the answer given by the player is a correct int value else false
-    """
-    return answer.isdigit() and int(answer) in (1, 2, 3)
-
-
 def check_best_move(fc_amount: int) -> int:
     """
-    compte the best move
+    compute the best move
     """
     # d'après mes recherches si un joueur tombe sur un multiple de 4 + 1 il a perdu car
     # l'autre n'a qu'a faire en sorte de toujours compléter pour que ça fasse 4
