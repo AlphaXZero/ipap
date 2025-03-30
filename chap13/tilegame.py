@@ -148,9 +148,9 @@ def is_lost(board: list) -> bool:
     """
     Return True if the game is lost (no available move) else False
     """
-    board_cp = board.copy()
+    board_cp = [i for i in board]
     for i in range(1, 5):
-        do_merge(board, i)
+        board = cleanse_zero(do_merge(board, i), i)
     return board == board_cp
 
 
@@ -162,13 +162,15 @@ def main() -> None:
     board = create_board()
     show_game(board)
     while 2048 not in board:
-        if is_lost:
+        if is_lost(board):
             print("Partie Perdu, aucun mouvement possible")
+            break
         usr_in = check_input()
         board = generate_2_4(cleanse_zero(do_merge(board, usr_in), usr_in))
         show_game(board)
         sleep(0.4)
-    print("VOUS AVEZ GAGNE")
+    if 2048 in board:
+        print("VOUS AVEZ GAGNE")
 
 
 if __name__ == "__main__":
