@@ -32,20 +32,25 @@ COLORS = {
     2048: Back.RED,
 }
 
+PADDING = {1: (1, 2), 2: (1, 1), 3: (1, 0), 4: (0, 0)}
+
 
 # TODO demander sudo
 
 
-# TODO : correction bas + gagnant + random 2 cases + apparition après moove
 def show_game(board: list) -> None:
     """
     prints the board
     """
-    print("\n---------------")
+    print("\n---------------------------")
     for i in board:
         for j in range(len(i)):
-            print(f"|{COLORS[i[j]]}{i[j]}{Style.RESET_ALL}| ", end="")
-        print("\n---------------")
+            pad = len(str(i[j]))
+            print(
+                f"|{COLORS[i[j]]}{' ' * PADDING[pad][0]}{i[j]}{' ' * PADDING[pad][1]}{Style.RESET_ALL}| ",
+                end="",
+            )
+        print("\n---------------------------")
 
 
 def generate_2_4(board: list) -> list:
@@ -139,6 +144,16 @@ def cleanse_zero(board: list, direction: int, vertical=0) -> list:
     return rotate_board(clrd_board) if vertical else clrd_board
 
 
+def is_lost(board: list) -> bool:
+    """
+    Return True if the game is lost (no available move) else False
+    """
+    board_cp = board.copy()
+    for i in range(1, 5):
+        do_merge(board, i)
+    return board == board_cp
+
+
 def main() -> None:
     """
     main function of the game
@@ -147,10 +162,13 @@ def main() -> None:
     board = create_board()
     show_game(board)
     while 2048 not in board:
+        if is_lost:
+            print("Partie Perdu, aucun mouvement possible")
         usr_in = check_input()
-        board = cleanse_zero(do_merge(board, usr_in), usr_in)
+        board = generate_2_4(cleanse_zero(do_merge(board, usr_in), usr_in))
         show_game(board)
         sleep(0.4)
+    print("VOUS AVEZ GAGNE")
 
 
 if __name__ == "__main__":
