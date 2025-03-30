@@ -4,9 +4,7 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = [
-    "keyboard>=0.13.5",
-]
+dependencies = []
 
 [tool.uv.workspace]
 members = ["chap2", "chap3", "chap4", "chap5", "tommorow", "chap6", "chap7", "chap8", "chap9", "chap10", "chap11", "chap12", "chap13"]
