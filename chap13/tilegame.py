@@ -151,7 +151,9 @@ def is_lost(board: list) -> bool:
     board_cp = [i for i in board]
     for i in range(1, 5):
         board = cleanse_zero(do_merge(board, i), i)
-    return board == board_cp
+        if board != board_cp:
+            return False
+    return True
 
 
 def main() -> None:
