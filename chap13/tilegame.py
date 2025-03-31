@@ -43,11 +43,11 @@ def show_game(board: list) -> None:
     prints the board
     """
     print("\n---------------------------")
-    for i in board:
-        for j in range(len(i)):
-            pad = len(str(i[j]))
+    for row in board:
+        for j in range(len(row)):
+            pad = len(str(row[j]))
             print(
-                f"|{COLORS[i[j]]}{' ' * PADDING[pad][0]}{i[j]}{' ' * PADDING[pad][1]}{Style.RESET_ALL}| ",
+                f"|{COLORS[row[j]]}{' ' * PADDING[pad][0]}{row[j]}{' ' * PADDING[pad][1]}{Style.RESET_ALL}| ",
                 end="",
             )
         print("\n---------------------------")
@@ -60,7 +60,7 @@ def generate_2_4(board: list) -> list:
     index_zeros = [
         (j, i) for j, row in enumerate(board) for i in range(len(row)) if row[i] == 0
     ]
-    for i in range(2):
+    for _ in range(2):
         if not index_zeros:
             return board
         random_zero = index_zeros.pop(randrange(0, len(index_zeros)))
@@ -103,14 +103,19 @@ def do_merge(board: list, direction: int, vertical=0) -> list:
     merge all the adjacent number in the desired direction
     """
     if direction in (2, 4):
+        board = [[i for i in row if i != 0] for row in board]
         board = [i[::-1] for i in board] if direction == 2 else board
-        for i in range(len(board)):
-            for j in range(len(board) - 1):
-                if board[i][j + 1] == board[i][j]:
-                    board[i][j] *= 2
-                    board[i][j + 1] = 0
-        board = board if direction == 4 else [i[::-1] for i in board]
-        return rotate_board(board) if vertical else board
+        for i, row in enumerate(board):
+            for j in range(len(row) - 1):
+                if row[j + 1] == row[j]:
+                    row[j] *= 2
+                    row[j + 1] = 0
+        board = [i[::-1] for i in board] if direction == 2 else board
+        return (
+            rotate_board(add_zeros(board, direction))
+            if vertical
+            else add_zeros(board, direction)
+        )
     if direction == 1:
         return do_merge(rotate_board(board), 4, 1)
     return do_merge(rotate_board(board), 2, 1)
@@ -123,25 +128,16 @@ def rotate_board(board: list) -> list:
     return [list(row) for row in zip(*board)]
 
 
-def cleanse_zero(board: list, direction: int, vertical=0) -> list:
+def add_zeros(board: list, direction: int, vertical=0) -> list:
     """
-    remove the 0 if they are betwen two int
-    then isolate them in the desired direction
-    []
+    complete a row with zeros needed in the right direction
     """
     clrd_board = []
-    if direction in (2, 4):
-        for row in board:
-            zero_list, int_list = [0] * row.count(0), [j for j in row if j != 0]
-            clrd_board.append(
-                zero_list + int_list if direction == 2 else int_list + zero_list
-            )
-    else:
-        if direction == 1:
-            return cleanse_zero(rotate_board(board), 4, 1)
-        return cleanse_zero(rotate_board(board), 2, 1)
-
-    return rotate_board(clrd_board) if vertical else clrd_board
+    board = [[i for i in row if i != 0] for row in board]
+    for row in board:
+        zero_list = [0] * (4 - len(row))
+        clrd_board.append(zero_list + row if direction == 2 else row + zero_list)
+    return clrd_board
 
 
 def is_lost(board: list) -> bool:
@@ -150,7 +146,7 @@ def is_lost(board: list) -> bool:
     """
     board_cp = [i for i in board]
     for i in range(1, 5):
-        board = cleanse_zero(do_merge(board, i), i)
+        board = do_merge(board, i)
         if board != board_cp:
             return False
     return True
@@ -168,7 +164,7 @@ def main() -> None:
             print("Partie Perdu, aucun mouvement possible")
             break
         usr_in = check_input()
-        board = generate_2_4(cleanse_zero(do_merge(board, usr_in), usr_in))
+        board = generate_2_4(do_merge(board, usr_in))
         show_game(board)
         sleep(0.4)
     if 2048 in board:
