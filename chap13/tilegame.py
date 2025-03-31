@@ -32,10 +32,10 @@ COLORS = {
     2048: Back.RED,
 }
 
-PADDING = {1: (1, 2), 2: (1, 1), 3: (1, 0), 4: (0, 0)}
+PADDING = {1: (2, 1), 2: (1, 1), 3: (1, 0), 4: (0, 0)}
 
 
-# TODO demander sudo
+# TODO demander sudo + ligne 106
 
 
 def show_game(board: list) -> None:
@@ -44,10 +44,10 @@ def show_game(board: list) -> None:
     """
     print("\n---------------------------")
     for row in board:
-        for j in range(len(row)):
-            pad = len(str(row[j]))
+        for cell in row:
+            pad = len(str(cell))
             print(
-                f"|{COLORS[row[j]]}{' ' * PADDING[pad][0]}{row[j]}{' ' * PADDING[pad][1]}{Style.RESET_ALL}| ",
+                f"|{COLORS[cell]}{' ' * PADDING[pad][0]}{cell}{' ' * PADDING[pad][1]}{Style.RESET_ALL}| ",
                 end="",
             )
         print("\n---------------------------")
@@ -103,9 +103,10 @@ def do_merge(board: list, direction: int, vertical=0) -> list:
     merge all the adjacent number in the desired direction
     """
     if direction in (2, 4):
-        board = [[i for i in row if i != 0] for row in board]
+        board = [list(filter(lambda x: x != 0, row)) for row in board]
+        # [[i for i in row if i != 0] for row in board]
         board = [i[::-1] for i in board] if direction == 2 else board
-        for i, row in enumerate(board):
+        for row in board:
             for j in range(len(row) - 1):
                 if row[j + 1] == row[j]:
                     row[j] *= 2
@@ -133,7 +134,7 @@ def add_zeros(board: list, direction: int, vertical=0) -> list:
     complete a row with zeros needed in the right direction
     """
     clrd_board = []
-    board = [[i for i in row if i != 0] for row in board]
+    board = [list(filter(lambda x: x != 0, row)) for row in board]
     for row in board:
         zero_list = [0] * (4 - len(row))
         clrd_board.append(zero_list + row if direction == 2 else row + zero_list)
