@@ -16,6 +16,7 @@ from keyboard import read_key
 from random import randrange
 from time import sleep
 from colorama import init, Fore, Back, Style
+from tabulate import tabulate
 
 COLORS = {
     0: Fore.WHITE,
@@ -38,19 +39,15 @@ PADDING = {1: (2, 1), 2: (1, 1), 3: (1, 0), 4: (0, 0)}
 # TODO demander sudo + ligne 106
 
 
-def show_game(board: list) -> None:
+def show_game(board):
     """
-    prints the board
+    print the board
     """
-    print("\n---------------------------")
-    for row in board:
-        for cell in row:
-            pad = len(str(cell))
-            print(
-                f"|{COLORS[cell]}{' ' * PADDING[pad][0]}{cell}{' ' * PADDING[pad][1]}{Style.RESET_ALL}| ",
-                end="",
-            )
-        print("\n---------------------------")
+    board = tabulate(
+        [[f"{COLORS[cell]}{cell}{Style.RESET_ALL}" for cell in row] for row in board],
+        tablefmt="simple_grid",
+    )
+    print(board)
 
 
 def generate_2_4(board: list) -> list:
