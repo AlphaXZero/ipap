@@ -33,11 +33,6 @@ COLORS = {
     2048: Back.RED,
 }
 
-PADDING = {1: (2, 1), 2: (1, 1), 3: (1, 0), 4: (0, 0)}
-
-
-# TODO demander sudo + ligne 106
-
 
 def show_game(board):
     """
@@ -101,7 +96,6 @@ def do_merge(board: list, direction: int, vertical=0) -> list:
     """
     if direction in (2, 4):
         board = [list(filter(lambda x: x != 0, row)) for row in board]
-        # [[i for i in row if i != 0] for row in board]
         board = [i[::-1] for i in board] if direction == 2 else board
         for row in board:
             for j in range(len(row) - 1):

@@ -202,4 +202,4 @@ def nombres_circulaires_premiers(nbr: int) -> bool:
 
 
 if __name__ == "__main__":
-    print(is_palindrome(30103))
+    print(sumcode(69810))
